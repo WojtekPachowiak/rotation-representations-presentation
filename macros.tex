@@ -1,0 +1,171 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\aatuple}[4]{(\degree{#1},[#2,#3,#4])}
+
+\newcommand{\aavec}[3]{[#1,#2,#3]}
+
+
+\newcommand{\hl}[1]{\colorbox{gray!30!white}{\it{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% sets
+
+\newcommand{\sthree}{\mathbb{S}^3}
+
+\newcommand{\stwo}{\mathbb{S}^2}
+
+\newcommand{\sone}{\mathbb{S}^1}
+
+\newcommand{\sutwo}{\mathbb{SU}(2)}
+
+\newcommand{\sothree}{\mathbb{SO}(3)}
+\newcommand{\sotwo}{\mathbb{SO}(2)}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\Z}{\mathbb{Z}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SHORTCUTS
+
+\newcommand{\selfref}{thesis}
+
+\newcommand{\CS}{CS}
+
+\newcommand{\mX}{\mathbf{R}_X}
+\newcommand{\mY}{\mathbf{R}_Y}
+\newcommand{\mZ}{\mathbf{R}_Z}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+
+\newcommand{\trace}{\text{Tr}}
+
+\newcommand{\degree}[1]{{#1}^{\circ}}
+
+\newcommand{\rotaxisn}{\rotaxis{n}}
+
+\newcommand{\rotaxis}[1]{\mathbf{#1}}
+
+\newcommand{\lrotaxis}[1]{\mathbf{\lowercase{#1}}}
+\newcommand{\grotaxis}[1]{\mathbf{\uppercase{#1}}}
+
+
+\newcommand{\rotmat}[2]{\mathbf{R}(\rotaxis{#1},#2)}
+\newcommand{\trotmat}[2]{\mathbf{R}^\top(\rotaxis{#1},#2) }
+
+
+\newcommand{\rotmatII}[1]{
+	\begin{bmatrix}
+		\cos{#1} & -\sin{#1} \\
+		\sin{#1} & \cos{#1}
+	\end{bmatrix}
+}
+
+\newcommand{\complexnumb}[2]{
+#1 + i#2
+}
+
+\newcommand{\vecsymb}[1]{{\mathbf{\lowercase{#1}}}}
+\newcommand{\vv}[1]{{\mathbf{\lowercase{#1}}}}
+
+\newcommand{\vecthree}[3]{
+\begin{bmatrix}
+	#1 &
+	#2&
+	#3
+\end{bmatrix}}
+
+\newcommand{\vecthreecol}[3]{
+	\begin{bmatrix}
+		#1 \\
+		#2\\
+		#3
+\end{bmatrix}}
+
+\newcommand{\vectwocol}[2]{
+	\begin{bmatrix}
+		#1 \\
+		#2
+\end{bmatrix}}
+
+\newcommand{\tvectwocol}[2]{
+	\begin{bmatrix}
+		#1 &
+		#2
+\end{bmatrix}^\top}
+
+\newcommand{\tvecthree}[3]{
+\vecthree{#1}{#2}{#3}^\top	
+}
+
+\newcommand{\sphercoordsvec}{
+	\tvecthree{\cos\alpha\sin\beta}{\sin\alpha\sin\beta}{\cos\beta}
+}
+
+\newcommand{\genmat}[1]{\mathbf{R}_{#1}}
+
+\newcommand{\tgenmat}[1]{\mathbf{R}_{#1}^\top}
+
+
+\newcommand{\pihalf}{\frac{\pi}{2}}
+
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\interpolate}[1]{\twoheadrightarrow_{#1}}
+
+\newcommand{\crossmat}[1]{\left[#1\right]_{\times}}
+
+\newcommand{\crossmatfull}[3]{
+\begin{bmatrix}
+	0 & -#3 & #2 \\
+	#3 & 0 & -#1 \\
+	-#2 & #1 & 0 
+\end{bmatrix}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% quaternions
+
+\newcommand{\quattw}[2]{
+	t_#2(#1)
+}
+
+\newcommand{\quatsw}[3]{
+	s_#3(#1, #2)
+}
+
+\newcommand{\quat}[4]{
+	\textstyle(#1,(#2,#3,#4))
+}
+
+\newcommand{\quatvec}[2]{
+	\textstyle \left(#1, \mathbf{#2}\right)
+}
+
+\newcommand{\quatvecmanual}[2]{
+	\textstyle(#1, #2)
+}
+
+\newcommand{\quatrotaxis}[2]{
+\textstyle q(\rotaxis{#1},#2)
+}
+
+
+\newcommand{\quatrotaxisinv}[2]{
+	\textstyle q^{-1}(\rotaxis{#1},#2)
+}
+
+\newcommand{\quataa}[2]{
+\quatvecmanual{\cos\frac{#2}{2}}{\rotaxis{#1}\sin\frac{#2}{2}}
+}
+
+\newcommand{\idmat}{\mathbf{I}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% eulers 
+
+\newcommand{\eulangovals}[3]{(\degree{#1},\degree{#2},\degree{#3})}

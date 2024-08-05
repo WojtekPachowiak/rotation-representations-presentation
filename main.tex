@@ -1,0 +1,226 @@
+\documentclass{beamer}
+
+\input{preamble.tex}
+\input{macros.tex}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+%##################################################################################
+
+
+\section{Convetions}
+
+\begin{frame}
+\frametitle{Coordinate systems}
+What orientations do the following mathematical rotation representations express?
+\begin{itemize}
+    \item Euler angles $\eulangovals{41}{-18}{-83}$ in XYZ extrinsic order
+    \item Quaternion $\quat{0.73}{0.16}{-0.34}{-0.57}$
+    \item Axis angle tuple $\aatuple{86}{0.24}{-0.5}{-0.84}$
+    \item Axis angle vector $\aavec{0.36}{-0.75}{-1.26}$
+    \item 3D rotation matrix 
+    $$        
+        \begin{bmatrix}
+            0.116 & 0.725 & -0.68 \\
+            -0.944 & 0.3 & 0.15 \\
+            0.31 & 0.624 & 0.718
+        \end{bmatrix}
+    $$
+\end{itemize} 
+The same orientation but with respect to what coordinate system (frame of reference)?
+\end{frame}
+
+\begin{frame}
+\frametitle{Active and passive rotations}
+Which is moving? Objects within a coordinate system or the coordinate system itself?
+
+\begin{figure}
+	\centering
+	\def\sqlen{0.2}
+	\def\sqshift{0.5}
+	\def\axlen{0.5}
+	\def\ang{20}
+	\def\arr{0.282842712}
+	
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[thick,scale=5]
+			
+			\draw[-Stealth, black!25] (0,0) -- (0,\axlen);
+			\draw[-Stealth, black!25] (0,0) -- (\axlen,0);
+			
+			\draw[red,-Stealth] (\arr,0) arc (0:\ang:\arr) node[right=4mm, below=0mm]{$\theta$};
+			
+			\draw[-Stealth, rotate=\ang] (0,0) -- (0,\axlen);
+			\draw[-Stealth, rotate=\ang] (0,0) -- (\axlen,0);
+			
+			\draw[black] 
+			(\sqlen,\sqlen) -- (\sqlen,-\sqlen) -- (-\sqlen,-\sqlen) -- (-\sqlen,\sqlen) -- (\sqlen,\sqlen); 
+			
+			
+		\end{tikzpicture}
+		%	\includesvg[scale=0.5]{"./svg/passive_rotation.svg"}
+		%	\includegraphics[width=\linewidth]{passive_rotation.png}
+		\caption{Passive rotation}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		
+		\begin{tikzpicture}[thick,scale=5]
+			\draw[-Stealth, black] (0,0) -- (0,\axlen);
+			\draw[-Stealth, black] (0,0) -- (\axlen,0);
+			
+			\draw[black!25, rotate=0] 
+			(\sqlen,\sqlen) -- (\sqlen,-\sqlen) -- (-\sqlen,-\sqlen) -- (-\sqlen,\sqlen) -- (\sqlen,\sqlen); 
+			
+			\draw[red,-Stealth] ({cos(45)*\arr},{sin(45)*\arr}) arc (45:45-\ang:\arr) node[right=2mm, above=2mm]{$-\theta$};
+			
+			\draw[black, rotate=-\ang] 
+			(\sqlen,\sqlen) -- (\sqlen,-\sqlen) -- (-\sqlen,-\sqlen) -- (-\sqlen,\sqlen) -- (\sqlen,\sqlen); 
+			
+		\end{tikzpicture}
+		
+		%	\includesvg[scale=0.5]{"./svg/active_rotation.svg"}
+		%	\includegraphics[width=\linewidth]{active_rotation.png}
+		\caption{Active rotation}
+	\end{subfigure}
+\end{figure}
+
+To convert between these two perspectives, invert the rotation:
+$$
+\mathbf{R}_{active} = \mathbf{R}^{-1}_{passive}
+$$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Handedness of coordinate system}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textheight]{assets/3D_soft_handedness.png}
+	\caption*{\url{https://bevy-cheatbook.github.io/fundamentals/coords.html}}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Positive angle}
+Is positive angle clockwise or counterclockwise when looking along some axis?
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textheight]{assets/unity-axis-with-rotation_positive_angle.png}
+	\caption*{\url{https://docs.unity3d.com/Manual/QuaternionAndEulerRotationsInUnity.html}}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Forward, up, right vectors}
+Which vectors are considered forward, upward, rightward, leftward, etc.?
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textheight]{assets/fingers.png}
+	\caption*{\url{https://stackoverflow.com/a/34068511}}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Intrinsic and extrinsic rotations}
+When it comes to Euler angles, are rotations performed around the global axes or some local axes?
+
+TODO formula for conversion between them
+\vfill 	
+See the pictures for a visual explanation:
+\url{https://en.wikipedia.org/w/index.php?title=Davenport_chained_rotations&oldid=1222677779\#Conversion_between_intrinsic_and_extrinsic_rotations}
+\end{frame}
+        
+%##################################################################################
+
+\section{Mathemtical representations}
+
+
+\begin{frame}
+\frametitle{2D rotations}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Euler angles}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{3D rotation matrices: Euler-angle-like}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{3D rotation matrices: axis-angle-like}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Quaternions}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Rodriguez formula}
+\end{frame}
+    
+    
+
+\begin{frame}
+\frametitle{Axis-angle, exponential map}
+\end{frame}
+    
+
+\begin{frame}
+\frametitle{In SciPy}
+\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.transform.Rotation.as_quat.html}
+\vfill
+Note the \hl{seq} argument in \hl{as\_euler} method. Also note the \hl{canonical} and \hl{scalar\_first} arguments in \hl{as\_quat}.
+\vfill
+We didn't cover: 
+\begin{itemize}
+	\item Davenport angles --- like Euler angles but generalized to nonperpendicular axes.  
+	\item Modified Rodriguez Parameters (MRP) --- like axis-angle vectors but the angle of rotation is transformed.
+\end{itemize}
+\end{frame}
+
+%##################################################################################
+
+\section{Miscellaneous}
+
+
+\begin{frame}
+\frametitle{Gimbal lock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{A-to-B rotation interpolation}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{A-to-C-through-B rotation interpolation}
+\end{frame}
+
+
+
+%##################################################################################
+
+\end{document}
+
+%##################################################################################
